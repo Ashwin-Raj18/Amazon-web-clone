@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-import Product from './Product';
+import Product from '../product/Product';
 function Home () {
 	return (
 		<div className="home">
@@ -45,6 +45,15 @@ function Home () {
 					price={7006}
 					rating={4}
 					image="https://images-eu.ssl-images-amazon.com/images/I/31bksubeqnL._AC_SX184_.jpg"
+				/>
+			</div>
+			<div className="home__row">
+				<Product
+					id={78964}
+					title="Nestlé CERELAC Fortified Baby Cereal with Milk, Multigrain & Fruits – From 12 Months, 300g BIB Pack"
+					price={245}
+					rating={5}
+					image="https://m.media-amazon.com/images/I/71DvIbCz85L._AC_UL320_.jpg"
 				/>
 			</div>
 		</div>
