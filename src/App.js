@@ -1,20 +1,44 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/header/Header';
 import Home from './components/home/Home';
+import Checkout from './components/checkout/Checkout';
+import Login from './components/login/Login';
+import { useStateValue } from './state&context/StateProvider';
+import { auth } from './firebase/Firebase';
 
 function App () {
+	const [ { cart }, dispatch ] = useStateValue();
+
+	useEffect(() => {
+		const unsubscribe = auth.onAuthStateChanged((authUser) => {
+			if (authUser) {
+				dispatch({
+					type : 'SET_USER',
+					user : authUser
+				});
+			} else {
+				dispatch({
+					type : 'SET_USER',
+					user : null
+				});
+			}
+		});
+		return () => {
+			unsubscribe();
+		};
+	}, []);
 	return (
 		<Router>
 			<div className="app">
 				<Switch>
 					<Route path="/checkout">
 						<Header />
-						<h1>cart</h1>
+						<Checkout />
 					</Route>
 					<Route path="/login">
-						<h1>login</h1>
+						<Login />
 					</Route>
 					<Route path="/">
 						<Header />

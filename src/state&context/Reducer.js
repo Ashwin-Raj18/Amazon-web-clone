@@ -1,12 +1,14 @@
 export const initialState = {
-	basket : [],
-	user   : null
+	cart : [],
+	user : null
 };
 
 export const getCartTotal = (cart) =>
 	cart.reduce((amount, item) => item.price + amount, 0);
 
 const reducer = (state, action) => {
+	//action goes into dispach inside component always
+	console.log(state);
 	switch (action.type) {
 		case 'SET_USER':
 			return {
@@ -14,22 +16,22 @@ const reducer = (state, action) => {
 				user : action.user
 			};
 
-		case 'ADD_TO_BASKET':
+		case 'ADD_TO_CART':
 			return {
 				...state,
-				basket : [ ...state.basket, action.item ]
+				cart : [ ...state.cart, action.item ]
 			};
 			break;
-		case 'REMOVE_FROM_BASKET':
-			let newBasket = [ ...state.basket ];
-			const index = state.basket.findIndex((basketItem) => basketItem.id === action.id);
+		case 'REMOVE_FROM_CART':
+			let newCart = [ ...state.cart ];
+			const index = state.cart.findIndex((cartItem) => cartItem.id === action.id);
 			if (index >= 0) {
-				newBasket.splice(index, 1);
+				newCart.splice(index, 1);
 			} else {
 			}
 			return {
 				...state,
-				basket : newBasket
+				cart : newCart
 			};
 			break;
 		default:
