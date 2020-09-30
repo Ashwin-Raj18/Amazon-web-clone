@@ -7,7 +7,7 @@ import Checkout from './components/checkout/Checkout';
 import Login from './components/login/Login';
 import { useStateValue } from './state&context/StateProvider';
 import { auth } from './firebase/Firebase';
-
+import Footer from './components/footer/Footer';
 function App () {
 	const [ { cart }, dispatch ] = useStateValue();
 
@@ -43,6 +43,7 @@ function App () {
 					<Route path="/">
 						<Header />
 						<Home />
+						<Footer />
 					</Route>
 				</Switch>
 			</div>

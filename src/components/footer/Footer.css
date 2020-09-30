@@ -1,0 +1,36 @@
+.footer {
+	width: 741px;
+	display: flex;
+	background-color: #131921;
+	color: aliceblue;
+}
+.footer__content__left {
+	padding-left: 4.875rem;
+	font-weight: 400;
+}
+h5 {
+	padding-top: 0.3125rem;
+}
+.stack__list {
+	margin-left: -1.25rem;
+	font-size: 0.815rem;
+	list-style-type: square;
+}
+.footer__content__right {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	margin-left: 16rem;
+	font-size: 0.815rem;
+}
+@media only screen and (min-width: 800px) {
+	.footer {
+		width: 100%;
+	}
+	.footer__content__right {
+		margin-left: 28.125rem;
+	}
+	.footer__content__left {
+		padding-left: 6.875rem;
+	}
+}

@@ -1,10 +1,12 @@
 .header {
 	background-color: #131921;
+	width: 740px;
 	display: flex;
 	align-items: center;
 	position: sticky;
 	top: 0;
 	z-index: 100;
+	-webkit-box-sizing: border-box;
 }
 .header__logo {
 	width: 100px;
@@ -15,7 +17,7 @@
 }
 .header__search {
 	display: flex;
-	flex: 1;
+	width: 300px;
 }
 .header__searchInput {
 	height: 12px;
@@ -35,6 +37,7 @@
 .header__link {
 	color: white;
 	text-decoration: none;
+	margin-right: 15px;
 }
 .header__options {
 	display: flex;
@@ -55,7 +58,20 @@
 }
 .cart__count {
 	position: absolute;
-	right: 15px;
+	right: 40px;
 	top: 7px;
 	color: #cd9042;
+}
+@media only screen and (min-width: 800px) {
+	.header {
+		width: 100%;
+	}
+
+	.header__search {
+		flex: 1;
+	}
+
+	.cart__count {
+		right: 30px;
+	}
 }
