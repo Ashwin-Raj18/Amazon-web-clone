@@ -17,6 +17,7 @@
 	width: 100%;
 	min-width: 700px;
 	margin-bottom: 10px;
+	height: auto;
 }
 .checkout__right {
 	margin-left: 20px;

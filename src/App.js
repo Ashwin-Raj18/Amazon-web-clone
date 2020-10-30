@@ -8,6 +8,7 @@ import Login from './components/login/Login';
 import { useStateValue } from './state&context/StateProvider';
 import { auth } from './firebase/Firebase';
 import Footer from './components/footer/Footer';
+import ProductDetails from './components/product/ProductDetails';
 function App () {
 	const [ { cart }, dispatch ] = useStateValue();
 
@@ -33,18 +34,19 @@ function App () {
 		<Router>
 			<div className="app">
 				<Switch>
-					<Route path="/checkout">
+					<Route exact path="/checkout">
 						<Header />
 						<Checkout />
 					</Route>
-					<Route path="/login">
+					<Route exact path="/login">
 						<Login />
 					</Route>
-					<Route path="/">
+					<Route exact path="/">
 						<Header />
 						<Home />
 						<Footer />
 					</Route>
+					<Route exact path="/details" component={ProductDetails} />
 				</Switch>
 			</div>
 		</Router>

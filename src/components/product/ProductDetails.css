@@ -1,0 +1,25 @@
+.product__details {
+	margin-top: 50px;
+	margin-left: 100px;
+	background-color: #fff;
+}
+
+.wrapper {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(2, 1fr);
+}
+img {
+	width: 50%;
+	height: 50%;
+}
+.product__details__rating {
+	display: flex;
+}
+.product__details__addToCart {
+	background-color: #f0c14b;
+	border: 1px solid;
+	border-color: #a88734 #9c7e31 #846a29;
+	width: fit-content;
+	align-self: center;
+}

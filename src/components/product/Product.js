@@ -1,5 +1,6 @@
 import React from 'react';
 import './Product.css';
+import { Link } from 'react-router-dom';
 import { useStateValue } from '../../state&context/StateProvider';
 
 function Product ({ id, title, image, price, rating }) {
@@ -18,20 +19,34 @@ function Product ({ id, title, image, price, rating }) {
 	};
 	return (
 		<div className="product">
-			<div className="product__info">
-				<p className="product__title">{title}</p>
-				<p className="product__price">
-					<small>₹</small>
-					<strong>{price}</strong>
-				</p>
-				<div className="product__rating">
-					{Array(rating).fill().map((_) => {
-						return <p>⭐</p>;
-					})}
+			<Link
+				to={{
+					pathname : '/details',
+					state    : {
+						id,
+						title,
+						image,
+						price,
+						rating
+					}
+				}}
+			>
+				<div className="product__info">
+					<p className="product__title">{title}</p>
+					<p className="product__price">
+						<small>₹</small>
+						<strong>{price}</strong>
+					</p>
+					<div className="product__rating">
+						{Array(rating).fill().map((_) => {
+							return <p>⭐</p>;
+						})}
+					</div>
 				</div>
-			</div>
 
-			<img className="product__image" src={image} />
+				<img className="product__image" src={image} />
+			</Link>
+
 			<button onClick={addToCart}>Add to cart</button>
 		</div>
 	);
